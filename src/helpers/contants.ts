@@ -7,6 +7,8 @@ export enum ROUTER_PATH {
     SCHEDULE = "/schedule",
     OUR_BLOG = "/our-blog",
     STAFF = "/staff",
+    SHOW = "/show/:id",
+    NOT_FOUND = "/*"
 }
 
 export const APP_NAME = (process.env.REACT_APP_APP_NAME as unknown) as string;

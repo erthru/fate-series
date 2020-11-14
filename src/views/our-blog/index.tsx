@@ -8,7 +8,7 @@ const OurBlog = () => (
             <title>Our Blog | {APP_NAME}</title>
         </Helmet>
 
-        <div className="text-white h-screen pt-10">Our Blog</div>
+        <div className="text-white h-screen pt-10">Our Blog Coming Soon.</div>
     </div>
 );
 

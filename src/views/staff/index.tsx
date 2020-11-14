@@ -8,7 +8,7 @@ const Staff = () => (
             <title>Staff | {APP_NAME}</title>
         </Helmet>
 
-        <div className="text-white h-screen pt-10">Staff</div>
+        <div className="text-white h-screen pt-10">Staff Coming Soon.</div>
     </div>
 );
 

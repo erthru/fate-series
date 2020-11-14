@@ -8,7 +8,7 @@ const Schedule = () => (
             <title>Schedule | {APP_NAME}</title>
         </Helmet>
 
-        <div className="text-white h-screen pt-10">Schedule</div>
+        <div className="text-white h-screen pt-10">Schedule Coming Soon.</div>
     </div>
 );
 
