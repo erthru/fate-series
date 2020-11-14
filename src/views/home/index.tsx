@@ -23,7 +23,7 @@ const Home = () => {
 
         dispatch(getContents());
         dispatch(getTrending());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="pt-4 md:pt-10 flex flex-wrap">

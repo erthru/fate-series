@@ -17,7 +17,7 @@ const Headlines = () => {
 
     useEffect(() => {
         dispatch(getHeadlines());
-    }, []);
+    }, [dispatch]);
 
     const moveSliderPosition = (position: number) => {
         setFade("");
@@ -40,7 +40,7 @@ const Headlines = () => {
     );
 
     return (
-        <div className="w-screen h-auto flex items-center pr-10 lg:-ml-10 md:pr-32 lg:pr-12">
+        <div className="h-auto flex items-center headlines-padding-on-random lg:-mx-8">
             <div className="bg-indigo-1400 transform rotate-45 hidden lg:block cursor-pointer" style={{ zIndex: 999, width: "70px", height: "70px", padding: "6px" }} onClick={() => moveSliderPosition(headlinesPosition - 1)}>
                 <div className="w-full h-full bg-indigo-1000 flex items-center">
                     <Icon icon={faChevronLeft} className="text-white text-xl mx-auto transform -rotate-45" />
@@ -72,8 +72,8 @@ const Headlines = () => {
                     <div className={"w-full flex " + fade}>
                         <div className="h-8 ml-6 pr-6 lg:ml-16 lg:pr-16 flex flex-wrap w-full" style={{ marginTop: "-280px" }}>
                             <span className="px-4 py-1 bg-white text-orange-600 text-sm">Adventure</span>
-                            <span className="w-11/12 text-white mt-2 text-5xl font-bold truncate">{headlines[headlinesPosition].title}</span>
-                            <span className="text-white text-sm truncate w-11/12">{headlines[headlinesPosition].description}</span>
+                            <span className="w-full mr-10 text-white mt-2 text-5xl font-bold truncate">{headlines[headlinesPosition].title}</span>
+                            <span className="w-full mr-10 text-white text-sm truncate">{headlines[headlinesPosition].description}</span>
 
                             <div className="w-full mt-6">{WatchNowButton()}</div>
 

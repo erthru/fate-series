@@ -19,8 +19,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="h-16 px-6 md:px-16 bg-indigo-1500 w-full">
-            <div className="flex flex-wrap h-full items-center">
+        <nav className="h-16 bg-indigo-1500 w-full">
+            <div className="flex flex-wrap h-full items-center container px-6 md:px-16 mx-auto">
                 <span className="w-auto font-bold" style={{ fontSize: "28px" }}>
                     <span className="text-white">Fate</span>
                     <span className="text-red-600">Series</span>

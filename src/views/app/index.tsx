@@ -9,17 +9,19 @@ import { ROUTER_PATH } from "../../helpers/contants";
 
 const App = () => (
     <div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap w-full">
             <Navbar />
         </div>
 
-        <div className="px-6 md:px-16 pb-6 overflow-x-hidden">
-            <Switch>
-                <Route exact path={ROUTER_PATH.HOME} component={Home} />
-                <Route path={ROUTER_PATH.SCHEDULE} component={Schedule} />
-                <Route path={ROUTER_PATH.OUR_BLOG} component={OurBlog} />
-                <Route path={ROUTER_PATH.STAFF} component={Staff} />
-            </Switch>
+        <div className="pb-6 overflow-x-hidden">
+            <div className="container px-6 md:px-16 mx-auto">
+                <Switch>
+                    <Route exact path={ROUTER_PATH.HOME} component={Home} />
+                    <Route path={ROUTER_PATH.SCHEDULE} component={Schedule} />
+                    <Route path={ROUTER_PATH.OUR_BLOG} component={OurBlog} />
+                    <Route path={ROUTER_PATH.STAFF} component={Staff} />
+                </Switch>
+            </div>
         </div>
     </div>
 );
