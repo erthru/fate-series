@@ -6,10 +6,11 @@ import Schedule from "../schedule";
 import OurBlog from "../our-blog";
 import Staff from "../staff";
 import { ROUTER_PATH } from "../../helpers/contants";
+import Footer from "../../components/footer";
 
 const App = () => (
     <div>
-        <div className="flex flex-wrap w-full">
+        <div className="flex flex-wrap">
             <Navbar />
         </div>
 
@@ -23,6 +24,8 @@ const App = () => (
                 </Switch>
             </div>
         </div>
+
+        <Footer />
     </div>
 );
 

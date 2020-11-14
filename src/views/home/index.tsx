@@ -50,7 +50,7 @@ const Home = () => {
 
                     <div className="flex flex-wrap mt-2 md:-mr-6 lg:mr-0">
                         {contents.map((content) => (
-                            <div className="w-full md:w-1/3 md:pr-6 mt-8" key={content.id}>
+                            <div className="w-full md:w-1/3 md:pr-6 mt-4" key={content.id}>
                                 <ContentPreview content={content} mode={ContentPreviewMode.vertical} />
                             </div>
                         ))}
@@ -68,7 +68,7 @@ const Home = () => {
 
                     <div className="flex flex-wrap mt-2">
                         {trending.map((content) => (
-                            <div className="w-full mt-8" key={content.id}>
+                            <div className="w-full mt-4" key={content.id}>
                                 <ContentPreview content={content} mode={ContentPreviewMode.horizontal} />
                             </div>
                         ))}

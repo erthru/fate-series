@@ -47,7 +47,7 @@ const Headlines = () => {
                 </div>
             </div>
 
-            <div className="w-full bg-red-900 rounded-lg img-on-center overflow-hidden flex flex-wrap items-center" style={{ zIndex: 998 }}>
+            <div className="w-full bg-red-900 rounded-lg img-on-center overflow-hidden flex flex-wrap items-center" style={{ height: "550px", zIndex: 998 }}>
                 {headlines.length === 0 ? (
                     <div className="mx-auto">
                         <ProgressBar color="white" />
