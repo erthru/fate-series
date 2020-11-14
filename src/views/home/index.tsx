@@ -34,7 +34,7 @@ const Home = () => {
             <div className="w-full mt-16 flex flex-wrap">
                 <div className="w-full lg:w-8/12 lg:pr-4">
                     <div className="flex w-full items-center">
-                        <MenuTitle title="TOP SERIES" />
+                        <MenuTitle title="CONTENTS" />
 
                         <div className="ml-auto flex items-center lg:pr-4 cursor-pointer">
                             <span className="text-white text-sm pr-3">VIEW ALL</span>
