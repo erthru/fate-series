@@ -25,8 +25,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className="w-full flex flex-wrap">
-            <div className="flex flex-wrap h-16 items-center container px-6 md:px-16 mx-auto bg-indigo-1500 w-full">
+        <div className="w-full flex flex-wrap bg-indigo-1500">
+            <div className="flex flex-wrap h-16 items-center container px-6 md:px-16 mx-auto w-full">
                 <span className="w-auto font-bold" style={{ fontSize: "28px" }}>
                     <span className="text-white">Fate</span>
                     <span className="text-red-600">Series</span>
@@ -46,7 +46,9 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <NavbarDrop isShown={isNavbarDropShown} />
+            <div className="w-full">
+                <NavbarDrop isShown={isNavbarDropShown} />
+            </div>
         </div>
     );
 };
