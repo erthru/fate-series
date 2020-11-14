@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import contentReducers from "./content/reducers";
+import navbarReducers from "./navbar/reducers";
 
 const combinedReducers = combineReducers({
     content: contentReducers,
+    navbar: navbarReducers,
 });
 
 const store = createStore(combinedReducers, {}, applyMiddleware(...[thunk]));

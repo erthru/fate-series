@@ -1,16 +1,20 @@
 import { faBars, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { ROUTER_PATH } from "../../helpers/contants";
+import { Store } from "../../plugins/store";
+import { toggleNavbarDrop } from "../../plugins/store/navbar/actions";
 import Icon from "../ui/icon";
 import NavbarCenterItem from "./navbar-center-item";
 import NavbarDrop from "./navbar-drop";
 
 const Navbar = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
     const history = useHistory();
     const [currentPath, setCurrentPath] = useState("/");
-    const [isNavDropShown, setIsNavDropShown] = useState(false);
+    const isNavbarDropShown = useSelector((store: Store) => store.navbar.isNavbarDropShown) as boolean;
 
     useEffect(() => {
         setCurrentPath(location.pathname);
@@ -38,11 +42,11 @@ const Navbar = () => {
                 <div className="w-auto ml-auto flex">
                     <Icon icon={faSearch} className="text-white cursor-pointer" />
                     <Icon icon={faUser} className="text-white ml-6 cursor-pointer" />
-                    <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" onClick={() => setIsNavDropShown(!isNavDropShown)} />
+                    <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" onClick={() => dispatch(toggleNavbarDrop())} />
                 </div>
             </div>
 
-            <NavbarDrop isShown={isNavDropShown} />
+            <NavbarDrop isShown={isNavbarDropShown} />
         </div>
     );
 };

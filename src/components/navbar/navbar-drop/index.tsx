@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { ROUTER_PATH } from "../../../helpers/contants";
+import { toggleNavbarDrop } from "../../../plugins/store/navbar/actions";
 import NavbarDropItem from "./navbar-drop-item";
 import "./styles.css";
 
@@ -9,6 +11,7 @@ type Props = {
 };
 
 const NavbarDrop = (props: Props) => {
+    const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
     const [currentPath, setCurrentPath] = useState("/");
@@ -18,6 +21,7 @@ const NavbarDrop = (props: Props) => {
     }, [location]);
 
     const routeTo = (path: ROUTER_PATH) => {
+        dispatch(toggleNavbarDrop());
         history.push(path);
     };
 
