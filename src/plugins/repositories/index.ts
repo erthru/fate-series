@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../../helpers/contants";
 import { Content } from "../store/content/types";
+import IFetchContentResponse from "./responses/fetchContentResponse";
 import IFetchContentsResponse from "./responses/fetchContentsResponse";
 import IFetchHeadlinesContentsResponse from "./responses/fetchHeadlinesContentsResponse";
 import IFetchTrendingContentsResponse from "./responses/fetchTrendingContentsResponse";
@@ -25,6 +26,21 @@ export const fetchHeadlinesContents = async (): Promise<IFetchHeadlinesContentsR
 export const fetchContents = async (): Promise<IFetchContentsResponse> => {
     const _fetch = await fetch(API_BASE_URL + "contents.json");
     return (await _fetch.json()) as IFetchContentsResponse;
+};
+
+export const fetchContent = async (id: number): Promise<IFetchContentResponse> => {
+    const _fetch = await fetch(API_BASE_URL + "contents.json");
+    const response = (await _fetch.json()) as IFetchContentsResponse;
+
+    const filteredContents = response.contents.filter((content) => {
+        return content.id === id;
+    });
+
+    const newResponse: IFetchContentResponse = {
+        content: filteredContents[0],
+    };
+
+    return newResponse;
 };
 
 export const fetchTrendingContents = async (): Promise<IFetchTrendingContentsResponse> => {

@@ -5,7 +5,6 @@ import Navbar from "../../components/navbar";
 import Schedule from "../schedule";
 import OurBlog from "../our-blog";
 import Staff from "../staff";
-import { ROUTER_PATH } from "../../helpers/contants";
 import Footer from "../../components/footer";
 import Show from "../show";
 import NotFound from "../not-found";
@@ -19,12 +18,12 @@ const App = () => (
         <div className="pb-6 overflow-x-hidden">
             <div className="container px-6 md:px-16 mx-auto">
                 <Switch>
-                    <Route exact path={ROUTER_PATH.HOME} component={Home} />
-                    <Route path={ROUTER_PATH.SCHEDULE} component={Schedule} />
-                    <Route path={ROUTER_PATH.OUR_BLOG} component={OurBlog} />
-                    <Route path={ROUTER_PATH.STAFF} component={Staff} />
-                    <Route path={ROUTER_PATH.SHOW} component={Show} />
-                    <Route path={ROUTER_PATH.NOT_FOUND} component={NotFound} />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/schedule" component={Schedule} />
+                    <Route path="/our-blog" component={OurBlog} />
+                    <Route path="/staff" component={Staff} />
+                    <Route path="/show/:id" component={Show} />
+                    <Route path="/*" component={NotFound} />
                 </Switch>
             </div>
         </div>

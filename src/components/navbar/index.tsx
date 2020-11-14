@@ -2,7 +2,6 @@ import { faBars, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { ROUTER_PATH } from "../../helpers/contants";
 import { Store } from "../../plugins/store";
 import { toggleNavbarDrop } from "../../plugins/store/navbar/actions";
 import Icon from "../ui/icon";
@@ -20,10 +19,6 @@ const Navbar = () => {
         setCurrentPath(location.pathname);
     }, [location]);
 
-    const routeTo = (path: ROUTER_PATH) => {
-        history.push(path);
-    };
-
     return (
         <div className="w-full flex flex-wrap bg-indigo-1500">
             <div className="flex flex-wrap h-16 items-center container px-6 md:px-16 mx-auto w-full">
@@ -33,10 +28,10 @@ const Navbar = () => {
                 </span>
 
                 <div className="w-auto h-full ml-auto hidden lg:flex mr-20">
-                    <NavbarCenterItem text="Home" isActive={currentPath === ROUTER_PATH.HOME} onClick={() => routeTo(ROUTER_PATH.HOME)} />
-                    <NavbarCenterItem text="Schedule" isActive={currentPath === ROUTER_PATH.SCHEDULE} onClick={() => routeTo(ROUTER_PATH.SCHEDULE)} />
-                    <NavbarCenterItem text="Our Blog" isActive={currentPath === ROUTER_PATH.OUR_BLOG} onClick={() => routeTo(ROUTER_PATH.OUR_BLOG)} />
-                    <NavbarCenterItem text="Staff" isActive={currentPath === ROUTER_PATH.STAFF} onClick={() => routeTo(ROUTER_PATH.STAFF)} />
+                    <NavbarCenterItem text="Home" isActive={currentPath === "/"} onClick={() => history.push("/")} />
+                    <NavbarCenterItem text="Schedule" isActive={currentPath === "/schedule"} onClick={() => history.push("/schedule")} />
+                    <NavbarCenterItem text="Our Blog" isActive={currentPath === "/our-blog"} onClick={() => history.push("/our-blog")} />
+                    <NavbarCenterItem text="Staff" isActive={currentPath === "/staff"} onClick={() => history.push("/staff")} />
                 </div>
 
                 <div className="w-auto ml-auto flex">

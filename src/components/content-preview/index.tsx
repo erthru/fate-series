@@ -1,6 +1,6 @@
 import { faCheck, faEye } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { API_BASE_URL } from "../../helpers/contants";
+import { useHistory } from "react-router-dom";
 import { Content } from "../../plugins/store/content/types";
 import Icon from "../ui/icon";
 
@@ -15,8 +15,10 @@ export enum ContentPreviewMode {
 }
 
 const ContentPreview = (props: Props) => {
+    const history = useHistory();
+
     return (
-        <div className={"flex flex-wrap " + (props.mode === ContentPreviewMode.horizontal ? "cursor-pointer" : "")}>
+        <div className="flex flex-wrap cursor-pointer" onClick={() => history.push("/show/" + props.content.id)}>
             <div
                 className="rounded-lg w-full bg-red-800"
                 style={{
@@ -73,7 +75,7 @@ const ContentPreview = (props: Props) => {
                 ) : null}
             </div>
 
-            {props.mode === ContentPreviewMode.vertical ? <span className="text-white font-medium text-xl mt-3 cursor-pointer">{props.content.title}</span> : null}
+            {props.mode === ContentPreviewMode.vertical ? <span className="text-white font-medium text-xl mt-3">{props.content.title}</span> : null}
         </div>
     );
 };

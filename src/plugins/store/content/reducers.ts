@@ -7,6 +7,7 @@ const initialState: State = {
     contentsTotal: 0,
     trendingContents: [],
     trendingContentsTotal: 0,
+    content: {},
     isError: false,
 };
 
@@ -29,6 +30,12 @@ const reducers = (state = initialState, { type, payloads }: Action): State => {
 
         case TYPES.REQUEST_TRENDING_CONTENTS_COMPLETED:
             return { ...state, trendingContents: payloads?.trendingContents!!, trendingContentsTotal: payloads?.trendingContentsTotal!! };
+
+        case TYPES.REQUEST_CONTENT_INITIAL:
+            return { ...state, content: {} };
+
+        case TYPES.REQUEST_CONTENT_COMPLETED:
+            return { ...state, content: payloads?.content!! };
 
         case TYPES.IS_ERROR:
             return { ...state, isError: true };

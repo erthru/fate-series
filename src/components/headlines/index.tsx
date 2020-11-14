@@ -1,7 +1,7 @@
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { API_BASE_URL } from "../../helpers/contants";
+import { useHistory } from "react-router-dom";
 import { Store } from "../../plugins/store";
 import { getHeadlinesContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
@@ -11,6 +11,7 @@ import "./styles.css";
 
 const Headlines = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const headlinesContents = useSelector((store: Store) => store.content.headlinesContents) as Array<Content>;
     const [headlinesPosition, setHeadlinesPosition] = useState(0);
     const [fade, setFade] = useState("fade");
@@ -30,7 +31,7 @@ const Headlines = () => {
     };
 
     const WatchNowButton = () => (
-        <button className="flex cursor-pointer">
+        <button className="flex cursor-pointer" onClick={() => history.push("/show/" + headlinesContents[headlinesPosition].id)}>
             <div className="bg-red-600 px-3 rounded-l-lg text-white font-bold h-12 flex items-center">WATCH NOW</div>
 
             <div className="w-6 bg-red-600 ml-1 rounded-r-lg flex items-center h-12">

@@ -1,7 +1,6 @@
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { ROUTER_PATH } from "../../helpers/contants";
 import Icon from "../ui/icon";
 
 const Footer = () => {
@@ -16,7 +15,7 @@ const Footer = () => {
         }
     };
 
-    const routeTo = (path: ROUTER_PATH) => {
+    const routeTo = (path: string) => {
         history.push(path);
         scrollToTop();
     };
@@ -40,25 +39,25 @@ const Footer = () => {
 
                     <div className="w-full lg:w-auto lg:ml-auto flex flex-wrap mt-3 lg:mt-0 lg:pl-16">
                         <div className="w-full lg:w-auto flex">
-                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo(ROUTER_PATH.HOME)}>
+                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo("/")}>
                                 Home
                             </span>
                         </div>
 
                         <div className="w-full lg:w-auto lg:ml-4 flex">
-                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo(ROUTER_PATH.SCHEDULE)}>
+                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo("/schedule")}>
                                 Schedule
                             </span>
                         </div>
 
                         <div className="w-full lg:w-auto lg:ml-4 flex">
-                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo(ROUTER_PATH.OUR_BLOG)}>
+                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo("/our-blog")}>
                                 Our Blog
                             </span>
                         </div>
 
                         <div className="w-full lg:w-auto lg:ml-4 flex">
-                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo(ROUTER_PATH.STAFF)}>
+                            <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo("/staff")}>
                                 Staff
                             </span>
                         </div>
