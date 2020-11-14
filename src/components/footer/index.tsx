@@ -1,6 +1,6 @@
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ROUTER_PATH } from "../../helpers/contants";
 import Icon from "../ui/icon";
 
@@ -41,7 +41,7 @@ const Footer = () => {
                     <div className="w-full lg:w-auto lg:ml-auto flex flex-wrap mt-3 lg:mt-0 lg:pl-16">
                         <div className="w-full lg:w-auto flex">
                             <span className="text-gray-500 mx-auto hover:text-gray-600 cursor-pointer" onClick={() => routeTo(ROUTER_PATH.HOME)}>
-                                Homepage
+                                Home
                             </span>
                         </div>
 

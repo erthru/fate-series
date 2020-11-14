@@ -27,7 +27,7 @@ const Navbar = () => {
                 </span>
 
                 <div className="w-auto h-full ml-auto hidden lg:flex">
-                    <NavbarCenterItem text="Homepage" isActive={currentPath === ROUTER_PATH.HOME} onClick={() => routeTo(ROUTER_PATH.HOME)} />
+                    <NavbarCenterItem text="Home" isActive={currentPath === ROUTER_PATH.HOME} onClick={() => routeTo(ROUTER_PATH.HOME)} />
                     <NavbarCenterItem text="Schedule" isActive={currentPath === ROUTER_PATH.SCHEDULE} onClick={() => routeTo(ROUTER_PATH.SCHEDULE)} />
                     <NavbarCenterItem text="Our Blog" isActive={currentPath === ROUTER_PATH.OUR_BLOG} onClick={() => routeTo(ROUTER_PATH.OUR_BLOG)} />
                     <NavbarCenterItem text="Staff" isActive={currentPath === ROUTER_PATH.STAFF} onClick={() => routeTo(ROUTER_PATH.STAFF)} />
