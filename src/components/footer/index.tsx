@@ -12,7 +12,7 @@ const Footer = () => {
 
         if (c > 0) {
             window.requestAnimationFrame(scrollToTop);
-            window.scrollTo(0, c - c / 16);
+            window.scrollTo(0, c - c / 8);
         }
     };
 
@@ -71,7 +71,7 @@ const Footer = () => {
                             All created with ♥
                             <br />
                             Check this on{" "}
-                            <a className="text-blue-500" href="https://github.com/erthru/fate-series">
+                            <a className="text-blue-500" target="blank" href="https://github.com/erthru/fate-series">
                                 Github
                             </a>
                         </p>
