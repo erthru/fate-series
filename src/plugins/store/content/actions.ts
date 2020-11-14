@@ -1,12 +1,12 @@
 import { Dispatch } from "redux";
-import { fetchContents, fetchHeadlines, fetchTrending } from "../../repositories";
+import { fetchContents, fetchHeadlinesContents, fetchTrendingContents } from "../../repositories";
 import { Action, TYPES } from "./types";
 
-export const getHeadlines = () => async (dispatch: Dispatch<Action>) => {
+export const getHeadlinesContents = () => async (dispatch: Dispatch<Action>) => {
     try {
-        dispatch({ type: TYPES.REQUEST_HEADLINE_INITIAL });
-        const response = await fetchHeadlines();
-        dispatch({ type: TYPES.REQUEST_HEADLINE_COMPLETED, payloads: { headlines: response.contents, headlinesTotal: response.total } });
+        dispatch({ type: TYPES.REQUEST_HEADLINES_CONTENTS_INITIAL });
+        const response = await fetchHeadlinesContents();
+        dispatch({ type: TYPES.REQUEST_HEADLINES_CONTENTS_COMPLETED, payloads: { headlinesContents: response.contents, headlinesContentsTotal: response.total } });
     } catch (e: any) {
         dispatch({ type: TYPES.IS_ERROR });
     }
@@ -22,11 +22,11 @@ export const getContents = () => async (dispatch: Dispatch<Action>) => {
     }
 };
 
-export const getTrending = () => async (dispatch: Dispatch<Action>) => {
+export const getTrendingContents = () => async (dispatch: Dispatch<Action>) => {
     try {
-        dispatch({ type: TYPES.REQUEST_TRENDING_INITIAL });
-        const response = await fetchTrending();
-        dispatch({ type: TYPES.REQUEST_TRENDING_COMPLETED, payloads: { trending: response.contents, trendingTotal: response.total } });
+        dispatch({ type: TYPES.REQUEST_TRENDING_CONTENTS_INITIAL });
+        const response = await fetchTrendingContents();
+        dispatch({ type: TYPES.REQUEST_TRENDING_CONTENTS_COMPLETED, payloads: { trendingContents: response.contents, trendingContentsTotal: response.total } });
     } catch (e: any) {
         dispatch({ type: TYPES.IS_ERROR });
     }

@@ -7,7 +7,7 @@ import MenuTitle from "../../components/menu-title";
 import ProgressBar from "../../components/progress-bar";
 import Icon from "../../components/ui/icon";
 import { Store } from "../../plugins/store";
-import { getContents, getTrending } from "../../plugins/store/content/actions";
+import { getContents, getTrendingContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
 import { Helmet } from "react-helmet";
 import { APP_NAME } from "../../helpers/contants";
@@ -15,7 +15,7 @@ import { APP_NAME } from "../../helpers/contants";
 const Home = () => {
     const dispatch = useDispatch();
     const contents = useSelector((store: Store) => store.content.contents) as Array<Content>;
-    const trending = useSelector((store: Store) => store.content.trending) as Array<Content>;
+    const trendingContents = useSelector((store: Store) => store.content.trendingContents) as Array<Content>;
     const [isFetchingContents, setIsFetchingContents] = useState(false);
     const [isFetchingTrending, setIsFetchingTrending] = useState(false);
 
@@ -24,7 +24,7 @@ const Home = () => {
         setIsFetchingTrending(true);
 
         dispatch(getContents());
-        dispatch(getTrending());
+        dispatch(getTrendingContents());
     }, [dispatch]);
 
     return (
@@ -67,16 +67,16 @@ const Home = () => {
                     <div className="w-full lg:w-4/12 mt-8 lg:mt-0">
                         <MenuTitle title="TRENDING" />
 
-                        {isFetchingTrending && trending.length === 0 ? (
+                        {isFetchingTrending && trendingContents.length === 0 ? (
                             <div className="w-full flex mt-8">
                                 <ProgressBar color="white" className="mx-auto" />
                             </div>
                         ) : null}
 
                         <div className="flex flex-wrap">
-                            {trending.map((content) => (
-                                <div className="w-full mt-8" key={content.id}>
-                                    <ContentPreview content={content} mode={ContentPreviewMode.horizontal} />
+                            {trendingContents.map((trendingContent) => (
+                                <div className="w-full mt-8" key={trendingContent.id}>
+                                    <ContentPreview content={trendingContent} mode={ContentPreviewMode.horizontal} />
                                 </div>
                             ))}
                         </div>

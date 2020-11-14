@@ -1,10 +1,10 @@
 export enum TYPES {
-    REQUEST_HEADLINE_INITIAL = "REQUEST_HEADLINE_INITIAL",
-    REQUEST_HEADLINE_COMPLETED = "REQUEST_HEADLINE_COMPLETED",
+    REQUEST_HEADLINES_CONTENTS_INITIAL = "REQUEST_HEADLINE_CONTENTS_INITIAL",
+    REQUEST_HEADLINES_CONTENTS_COMPLETED = "REQUEST_HEADLINE_CONTENTS_COMPLETED",
     REQUEST_CONTENTS_INITIAL = "REQUEST_CONTENTS_INITIAL",
     REQUEST_CONTENTS_COMPLETED = "REQUEST_CONTENTS_COMPLETED",
-    REQUEST_TRENDING_INITIAL = "REQUEST_TRENDING_INITIAL",
-    REQUEST_TRENDING_COMPLETED = "REQUEST_TRENDING_COMPLETED",
+    REQUEST_TRENDING_CONTENTS_INITIAL = "REQUEST_TRENDING_CONTENTS_INITIAL",
+    REQUEST_TRENDING_CONTENTS_COMPLETED = "REQUEST_TRENDING_CONTENTS_COMPLETED",
     IS_ERROR = "IS_ERROR",
 }
 
@@ -26,23 +26,23 @@ export enum ContentType {
 }
 
 export type State = {
-    headlines: Array<Content>;
-    headlinesTotal: number;
+    headlinesContents: Array<Content>;
+    headlinesContentsTotal: number;
     contents: Array<Content>;
     contentsTotal: number;
-    trending: Array<Content>;
-    trendingTotal: number;
+    trendingContents: Array<Content>;
+    trendingContentsTotal: number;
     isError: boolean;
 };
 
 export type Action = {
     type: TYPES;
     payloads?: {
-        headlines?: Array<Content>;
-        headlinesTotal?: number;
+        headlinesContents?: Array<Content>;
+        headlinesContentsTotal?: number;
         contents?: Array<Content>;
         contentsTotal?: number;
-        trending?: Array<Content>;
-        trendingTotal?: number;
+        trendingContents?: Array<Content>;
+        trendingContentsTotal?: number;
     };
 };
