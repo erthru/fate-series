@@ -14,7 +14,7 @@ const Navbar = () => {
         setCurrentPath(location.pathname);
     }, [location]);
 
-    const routeTo = (path: string) => {
+    const routeTo = (path: ROUTER_PATH) => {
         history.push(path);
     };
 
