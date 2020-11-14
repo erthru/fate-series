@@ -18,7 +18,7 @@ const ContentPreview = (props: Props) => {
     return (
         <div className={"flex flex-wrap " + (props.mode === ContentPreviewMode.horizontal ? "cursor-pointer" : "")}>
             <div
-                className="rounded w-full bg-red-800"
+                className="rounded-lg w-full bg-red-800"
                 style={{
                     height: props.mode === ContentPreviewMode.vertical ? "300px" : "180px",
                     backgroundImage:

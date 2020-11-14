@@ -31,9 +31,9 @@ const Headlines = () => {
 
     const WatchNowButton = () => (
         <button className="flex cursor-pointer h-12">
-            <div className="bg-red-600 px-3 rounded text-white font-bold h-full flex items-center">WATCH NOW</div>
+            <div className="bg-red-600 px-3 rounded-l-lg text-white font-bold h-full flex items-center">WATCH NOW</div>
 
-            <div className="w-6 bg-red-600 ml-1 rounded flex items-center h-full">
+            <div className="w-6 bg-red-600 ml-1 rounded-r-lg flex items-center h-full">
                 <Icon icon={faChevronRight} className="text-white mx-auto" />
             </div>
         </button>
@@ -47,7 +47,7 @@ const Headlines = () => {
                 </div>
             </div>
 
-            <div className="w-full bg-red-900 rounded-xl img-on-center overflow-hidden flex flex-wrap items-center" style={{ height: "550px", zIndex: 998 }}>
+            <div className="w-full bg-red-900 rounded-lg img-on-center overflow-hidden flex flex-wrap items-center" style={{ height: "550px", zIndex: 998 }}>
                 {headlines.length === 0 ? (
                     <div className="mx-auto">
                         <ProgressBar color="white" />
