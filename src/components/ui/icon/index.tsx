@@ -5,8 +5,9 @@ import React from "react";
 type Props = {
     icon: IconProp;
     className?: string;
+    onClick?(): void;
 };
 
-const Icon = (props: Props) => <FontAwesomeIcon icon={props.icon} className={props.className} />;
+const Icon = (props: Props) => <FontAwesomeIcon icon={props.icon} className={props.className} onClick={props.onClick} />;
 
 export default Icon;

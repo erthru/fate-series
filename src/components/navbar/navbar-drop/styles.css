@@ -1,0 +1,10 @@
+.navbar-drop {
+    height: 0;
+    transition: all .5s ease;
+    overflow-y: hidden;
+}
+
+.navbar-drop-active {
+    transition: all .5s ease;
+    height: 200px;
+}

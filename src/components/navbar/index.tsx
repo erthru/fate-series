@@ -4,11 +4,13 @@ import { useHistory, useLocation } from "react-router-dom";
 import { ROUTER_PATH } from "../../helpers/contants";
 import Icon from "../ui/icon";
 import NavbarCenterItem from "./navbar-center-item";
+import NavbarDrop from "./navbar-drop";
 
 const Navbar = () => {
     const location = useLocation();
     const history = useHistory();
     const [currentPath, setCurrentPath] = useState("/");
+    const [isNavDropShown, setIsNavDropShown] = useState(false);
 
     useEffect(() => {
         setCurrentPath(location.pathname);
@@ -19,8 +21,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="h-16 bg-indigo-1500 w-full">
-            <div className="flex flex-wrap h-full items-center container px-6 md:px-16 mx-auto">
+        <div className="w-full">
+            <div className="flex flex-wrap h-16 items-center container px-6 md:px-16 mx-auto bg-indigo-1500 w-full">
                 <span className="w-auto font-bold" style={{ fontSize: "28px" }}>
                     <span className="text-white">Fate</span>
                     <span className="text-red-600">Series</span>
@@ -36,10 +38,12 @@ const Navbar = () => {
                 <div className="w-auto ml-auto flex">
                     <Icon icon={faSearch} className="text-white cursor-pointer" />
                     <Icon icon={faUser} className="text-white ml-6 cursor-pointer" />
-                    <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" />
+                    <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" onClick={() => setIsNavDropShown(!isNavDropShown)} />
                 </div>
             </div>
-        </nav>
+
+            <NavbarDrop isShown={isNavDropShown} />
+        </div>
     );
 };
 

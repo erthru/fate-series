@@ -33,7 +33,7 @@ const Home = () => {
                 <title>Home | {APP_NAME}</title>
             </Helmet>
 
-            <div className="pt-4 md:pt-10 flex flex-wrap">
+            <div className="pt-6 md:pt-10 flex flex-wrap">
                 <div className="w-full">
                     <Headlines />
                 </div>
