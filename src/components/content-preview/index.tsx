@@ -21,10 +21,7 @@ const ContentPreview = (props: Props) => {
                 className="rounded-lg w-full bg-red-800"
                 style={{
                     height: props.mode === ContentPreviewMode.vertical ? "300px" : "180px",
-                    backgroundImage:
-                        props.mode === ContentPreviewMode.vertical
-                            ? "url(" + API_BASE_URL + "images/" + props.content.thumb + ")"
-                            : "linear-gradient(to bottom, transparent 0%, black 120%), url(" + API_BASE_URL + "images/" + props.content.thumb + ")",
+                    backgroundImage: props.mode === ContentPreviewMode.vertical ? "url(" + props.content.thumb + ")" : "linear-gradient(to bottom, transparent 0%, black 120%), url(" + props.content.thumb + ")",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center center",

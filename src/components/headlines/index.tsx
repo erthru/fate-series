@@ -58,7 +58,7 @@ const Headlines = () => {
                     <div
                         className={"w-full " + fade}
                         style={{
-                            backgroundImage: "linear-gradient(to bottom, transparent 0%, black 120%), url(" + API_BASE_URL + "images/" + headlinesContents[headlinesPosition].thumb + ")",
+                            backgroundImage: "linear-gradient(to bottom, transparent 0%, black 120%), url(" + headlinesContents[headlinesPosition].thumb + ")",
                             width: "100%",
                             height: "550px",
                             backgroundSize: "cover",
