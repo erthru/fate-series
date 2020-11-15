@@ -22,9 +22,9 @@ const VideoStreamer = (props: Props) => {
 
     useEffect(() => {
         if (props.mode === VideoStreamerMode.continue) {
-            if (isVideoPlaying && timeToContiue > 0) {
+            if (timeToContiue > 0) {
                 videoRef.current!!.currentTime = timeToContiue;
-                videoRef.current?.play();
+                if (isVideoPlaying) videoRef.current?.play();
             }
         }
     }, []);
