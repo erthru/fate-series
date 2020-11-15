@@ -5,7 +5,7 @@ import Breadcrumb, { BreadcrumbItem } from "../../components/breadcrumb";
 import EpisodeButton from "../../components/episode-button";
 import MenuTitle from "../../components/menu-title";
 import ProgressBar from "../../components/progress-bar";
-import VideoStreamer from "../../components/video-streamer";
+import MainVideoStreamer from "../../components/main-video-streamer";
 import { Store } from "../../plugins/store";
 import { getContent } from "../../plugins/store/content/actions";
 import { Content, ContentType } from "../../plugins/store/content/types";
@@ -66,7 +66,9 @@ const Show = () => {
                 <Breadcrumb items={breadcrumbItems} />
             </div>
 
-            <div className="w-full mt-10"></div>
+            <div className="w-full mt-10">
+                <MainVideoStreamer />
+            </div>
 
             {content.type === ContentType.series ? (
                 <div>

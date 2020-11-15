@@ -1,12 +1,11 @@
-import VideoStreamer from "../../../components/video-streamer";
 import { State, Action, TYPES } from "./types";
 
 const initialState: State = {
-    isVideoPlaying: false,
     title: "",
     episode: 1,
     thumbnail: "",
     video: "",
+    timeToContiue: 0,
 };
 
 const reducers = (state = initialState, { type, payloads }: Action): State => {
@@ -18,8 +17,11 @@ const reducers = (state = initialState, { type, payloads }: Action): State => {
                 episode: payloads?.episode!!,
                 thumbnail: payloads?.thumbnail!!,
                 video: payloads?.video!!,
-                isVideoPlaying: true,
+                timeToContiue: 0,
             };
+
+        case TYPES.CONTINUE_VIDEO:
+            return { ...state, timeToContiue: payloads?.timeToContinue!! };
 
         case TYPES.STOP_VIDEO:
             return {
@@ -28,7 +30,7 @@ const reducers = (state = initialState, { type, payloads }: Action): State => {
                 episode: 1,
                 thumbnail: "",
                 video: "",
-                isVideoPlaying: false,
+                timeToContiue: 0,
             };
 
         default:

@@ -7,13 +7,16 @@ export const registerVideo = (title: string, thumbnail: string, video: string, e
     dispatch({
         type: TYPES.PLAY_VIDEO,
         payloads: {
-            isVideoPlaying: true,
             title: title,
             thumbnail: thumbnail,
             video: video,
             episode: episode,
         },
     });
+};
+
+export const continueVideo = (timeToContinue: number) => (dispatch: Dispatch<Action>) => {
+    dispatch({ type: TYPES.CONTINUE_VIDEO, payloads: { timeToContinue: timeToContinue } });
 };
 
 export const unregisterVideo = () => (dispatch: Dispatch<Action>) => {
