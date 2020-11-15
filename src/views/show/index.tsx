@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Breadcrumb, { BreadcrumbItem } from "../../components/breadcrumb";
 import MenuTitle from "../../components/menu-title";
 import ProgressBar from "../../components/progress-bar";
-import VideoStreamer from "../../components/video-streamer";
+import VideoStreamer, { VideoStreamerMode } from "../../components/video-streamer";
 import { Store } from "../../plugins/store";
 import { getContent } from "../../plugins/store/content/actions";
 import { Content, ContentType } from "../../plugins/store/content/types";
@@ -22,6 +22,7 @@ const Show = () => {
     const { id } = useParams<Params>();
     const dispatch = useDispatch();
     const content = useSelector((store: Store) => store.content.content) as Content;
+    const video = useSelector((store: Store) => store.videoStreamer.video) as string;
     const [isFetchingContent, setIsFetchingContent] = useState(false);
     const breadcrumbItems: Array<BreadcrumbItem> = [
         {
@@ -40,7 +41,9 @@ const Show = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(registerVideo(content.thumb!!, content.video!!, 1));
+        if (Object.keys(content).length > 0) {
+            if (content.video !== video) dispatch(registerVideo(content.thumb!!, content.video!!, 1));
+        }
     }, [content]);
 
     return (
@@ -56,9 +59,11 @@ const Show = () => {
                     <Breadcrumb items={breadcrumbItems} />
                 </div>
 
-                <div className="w-full mt-10">
-                    <VideoStreamer />
-                </div>
+                {Object.keys(content).length > 0 ? (
+                    <div className="w-full mt-10">
+                        <VideoStreamer mode={content.video === video ? VideoStreamerMode.continue : VideoStreamerMode.new} />
+                    </div>
+                ) : null}
 
                 {content.type === ContentType.series ? (
                     <div>

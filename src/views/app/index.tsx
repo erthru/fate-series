@@ -13,7 +13,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { unregisterVideo } from "../../plugins/store/video-streamer/actions";
 import { Store } from "../../plugins/store";
-import VideoStreamer from "../../components/video-streamer";
+import VideoStreamer, { VideoStreamerMode } from "../../components/video-streamer";
 
 const App = () => {
     const location = useLocation();
@@ -29,7 +29,7 @@ const App = () => {
                             <Icon icon={faTimes} className="text-white text-xl" />
                         </div>
 
-                        <VideoStreamer />
+                        <VideoStreamer mode={VideoStreamerMode.continue} />
                     </div>
                 </div>
             ) : null}
