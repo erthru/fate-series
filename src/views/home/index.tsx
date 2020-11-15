@@ -7,6 +7,7 @@ import Contents from "../../components/contents";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import MenuTitle from "../../components/menu-title";
 import Icon from "../../components/ui/icon";
+import { Link } from "react-router-dom";
 
 const Home = () => (
     <div>
@@ -25,7 +26,10 @@ const Home = () => (
                         <MenuTitle title="CONTENTS" />
 
                         <div className="ml-auto flex items-center lg:pr-4 cursor-pointer">
-                            <span className="text-white text-sm pr-3">VIEW ALL</span>
+                            <Link className="text-white text-sm pr-3" to="/contens">
+                                VIEW ALL
+                            </Link>
+
                             <Icon icon={faArrowRight} className="text-white text-sm" />
                         </div>
                     </div>
@@ -37,7 +41,7 @@ const Home = () => (
                     <div className="w-full">
                         <MenuTitle title="TRENDING" />
                     </div>
-                    
+
                     <Trending />
                 </div>
             </div>

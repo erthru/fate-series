@@ -1,6 +1,6 @@
 import { faChevronRight, faHome } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Icon from "../ui/icon";
 
 type Props = {
@@ -12,31 +12,28 @@ export type BreadcrumbItem = {
     url: string;
 };
 
-const Breadcrumb = (props: Props) => {
-    const history = useHistory();
+const Breadcrumb = (props: Props) => (
+    <div className="flex flex-wrap w-full items-center">
+        <Icon icon={faHome} className="text-red-600" />
 
-    const routeTo = (path: string) => {
-        history.push(path);
-    };
+        <Link className="text-gray-400 ml-4 cursor-pointer" to="/">
+            Home
+        </Link>
 
-    return (
-        <div className="flex flex-wrap w-full items-center">
-            <Icon icon={faHome} className="text-red-600" />
-            
-            <span className="text-gray-400 ml-4 cursor-pointer" onClick={() => routeTo("/")}>
-                Home
-            </span>
+        {props.items.map((item, index) => (
+            <div>
+                <Icon icon={faChevronRight} className="text-gray-400 ml-3 text-sm" />
 
-            {props.items.map((item, index) => (
-                <div>
-                    <Icon icon={faChevronRight} className="text-gray-400 ml-3 text-sm" />
-                    <span className={"ml-3 " + (index === props.items.length - 1 ? "text-gray-600" : "text-gray-400 cursor-pointer")} onClick={() => (index !== props.items.length - 1 ? routeTo(item.url) : null)}>
+                {index === props.items.length - 1 ? <span className="ml-3 text-gray-600">{item.text}</span> : null}
+
+                {index !== props.items.length - 1 ? (
+                    <Link className="ml-3 text-gray-400 cursor-pointer" to={item.url}>
                         {item.text}
-                    </span>
-                </div>
-            ))}
-        </div>
-    );
-};
+                    </Link>
+                ) : null}
+            </div>
+        ))}
+    </div>
+);
 
 export default Breadcrumb;
