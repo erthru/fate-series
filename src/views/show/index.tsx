@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Breadcrumb, { BreadcrumbItem } from "../../components/breadcrumb";
 import MenuTitle from "../../components/menu-title";
 import ProgressBar from "../../components/progress-bar";
-import MainVideoStreamer from "../../components/main-video-streamer";
+import VideoStreamer from "../../components/video-streamer";
 import { Store } from "../../plugins/store";
 import { getContent } from "../../plugins/store/content/actions";
 import { Content, ContentType } from "../../plugins/store/content/types";
@@ -57,7 +57,7 @@ const Show = () => {
                 </div>
 
                 <div className="w-full mt-10">
-                    <MainVideoStreamer />
+                    <VideoStreamer />
                 </div>
 
                 {content.type === ContentType.series ? (
