@@ -41,9 +41,7 @@ const Show = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (Object.keys(content).length > 0) {
-            if (content.video !== video) dispatch(registerVideo(content.thumb!!, content.video!!, 1));
-        }
+        if (Object.keys(content).length > 0) if (content.video !== video) dispatch(registerVideo(content.thumb!!, content.video!!, 1));
     }, [content]);
 
     return (
