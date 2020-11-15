@@ -1,3 +1,4 @@
+import VideoStreamer from "../../../components/video-streamer";
 import { State, Action, TYPES } from "./types";
 
 const initialState: State = {
