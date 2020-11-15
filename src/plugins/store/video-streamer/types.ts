@@ -5,7 +5,6 @@ export enum TYPES {
 }
 
 export type State = {
-    title: string;
     episode: number;
     thumbnail: string;
     video: string;
@@ -16,7 +15,6 @@ export type Action = {
     type: TYPES;
     payloads?: {
         isVideoPlaying?: boolean;
-        title?: string;
         episode?: number;
         thumbnail?: string;
         video?: string;

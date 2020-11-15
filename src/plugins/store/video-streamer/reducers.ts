@@ -1,7 +1,6 @@
 import { State, Action, TYPES } from "./types";
 
 const initialState: State = {
-    title: "",
     episode: 1,
     thumbnail: "",
     video: "",
@@ -13,7 +12,6 @@ const reducers = (state = initialState, { type, payloads }: Action): State => {
         case TYPES.PLAY_VIDEO:
             return {
                 ...state,
-                title: payloads?.title!!,
                 episode: payloads?.episode!!,
                 thumbnail: payloads?.thumbnail!!,
                 video: payloads?.video!!,
@@ -26,7 +24,6 @@ const reducers = (state = initialState, { type, payloads }: Action): State => {
         case TYPES.STOP_VIDEO:
             return {
                 ...state,
-                title: "",
                 episode: 1,
                 thumbnail: "",
                 video: "",

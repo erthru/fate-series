@@ -39,7 +39,7 @@ const Show = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(registerVideo(content.title!!, content.thumb!!, content.video!!, 1));
+        dispatch(registerVideo(content.thumb!!, content.video!!, 1));
 
         setEpisodes([]);
 
