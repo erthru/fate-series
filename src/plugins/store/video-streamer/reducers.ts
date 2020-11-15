@@ -1,6 +1,7 @@
 import { State, Action, TYPES } from "./types";
 
 const initialState: State = {
+    isVideoPlaying: false,
     episode: 1,
     thumbnail: "",
     video: "",
@@ -9,7 +10,7 @@ const initialState: State = {
 
 const reducers = (state = initialState, { type, payloads }: Action): State => {
     switch (type) {
-        case TYPES.PLAY_VIDEO:
+        case TYPES.REGISTER_VIDEO:
             return {
                 ...state,
                 episode: payloads?.episode!!,
@@ -18,12 +19,19 @@ const reducers = (state = initialState, { type, payloads }: Action): State => {
                 timeToContiue: 0,
             };
 
+        case TYPES.PLAY_VIDEO:
+            return { ...state, isVideoPlaying: true };
+
+        case TYPES.PAUSE_VIDEO:
+            return { ...state, isVideoPlaying: false };
+
         case TYPES.CONTINUE_VIDEO:
             return { ...state, timeToContiue: payloads?.timeToContinue!! };
 
-        case TYPES.STOP_VIDEO:
+        case TYPES.UNREGISTER_VIDEO:
             return {
                 ...state,
+                isVideoPlaying: false,
                 episode: 1,
                 thumbnail: "",
                 video: "",

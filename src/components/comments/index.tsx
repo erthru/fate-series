@@ -16,7 +16,7 @@ const Comments = () => {
     return (
         <div>
             {comments.map((comment) => (
-                <div className="w-full mt-6">
+                <div className="w-full mt-6" key={comment.id}>
                     <CommentItem comment={comment} />
                 </div>
             ))}

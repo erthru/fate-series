@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Breadcrumb, { BreadcrumbItem } from "../../components/breadcrumb";
-import EpisodeButton from "../../components/episode-button";
 import MenuTitle from "../../components/menu-title";
 import ProgressBar from "../../components/progress-bar";
 import MainVideoStreamer from "../../components/main-video-streamer";
