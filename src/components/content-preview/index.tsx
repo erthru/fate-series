@@ -2,7 +2,7 @@ import { faCheck, faEye } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Content } from "../../plugins/store/content/types";
-import Icon from "../ui/icon";
+import Icon from "../icon";
 
 type Props = {
     content: Content;
@@ -15,7 +15,7 @@ export enum ContentPreviewMode {
 }
 
 const ContentPreview = (props: Props) => (
-    <Link className="flex flex-wrap cursor-pointer" to={"/show/" + props.content.id}>
+    <Link className="flex flex-wrap" to={"/show/" + props.content.id}>
         <div
             className="rounded-lg w-full bg-red-800"
             style={{

@@ -1,7 +1,7 @@
 import { faChevronRight, faHome } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link } from "react-router-dom";
-import Icon from "../ui/icon";
+import Icon from "../icon";
 
 type Props = {
     items: Array<BreadcrumbItem>;
@@ -27,7 +27,7 @@ const Breadcrumb = (props: Props) => (
                 {index === props.items.length - 1 ? <span className="ml-3 text-gray-600">{item.text}</span> : null}
 
                 {index !== props.items.length - 1 ? (
-                    <Link className="ml-3 text-gray-400 cursor-pointer" to={item.url}>
+                    <Link className="ml-3 text-gray-400" to={item.url}>
                         {item.text}
                     </Link>
                 ) : null}

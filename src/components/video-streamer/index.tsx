@@ -1,6 +1,4 @@
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react";
-import Icon from "../ui/icon";
+import React from "react";
 
 type Props = {
     thumbnail: string;

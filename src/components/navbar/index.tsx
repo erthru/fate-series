@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Store } from "../../plugins/store";
 import { toggleNavbarDrop } from "../../plugins/store/navbar/actions";
-import Icon from "../ui/icon";
+import Icon from "../icon";
 import NavbarCenterItem from "../navbar-center-item";
 import NavbarDrop from "../navbar-drop";
 

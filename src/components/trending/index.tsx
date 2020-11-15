@@ -5,7 +5,7 @@ import { Store } from "../../plugins/store";
 import { getTrendingContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
 import ContentPreview, { ContentPreviewMode } from "../content-preview";
-import ProgressBar from "../ui/progress-bar";
+import ProgressBar from "../progress-bar";
 
 const Trending = () => {
     const dispatch = useDispatch();

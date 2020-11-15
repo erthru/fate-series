@@ -1,7 +1,7 @@
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Icon from "../ui/icon";
+import Icon from "../icon";
 
 const Footer = () => {
     const history = useHistory();

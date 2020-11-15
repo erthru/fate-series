@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Breadcrumb, { BreadcrumbItem } from "../../components/breadcrumb";
-import ProgressBar from "../../components/ui/progress-bar";
+import EpisodeButton from "../../components/episode-button";
+import MenuTitle from "../../components/menu-title";
+import ProgressBar from "../../components/progress-bar";
 import VideoStreamer from "../../components/video-streamer";
 import { Store } from "../../plugins/store";
 import { getContent } from "../../plugins/store/content/actions";
@@ -28,10 +30,30 @@ const Show = () => {
         },
     ];
 
+    const [Episodes, setEpisodes] = useState<Array<JSX.Element>>();
+
     useEffect(() => {
         setIsFetchingContent(true);
         dispatch(getContent(parseInt(id)));
     }, [dispatch]);
+
+    useEffect(() => {
+        setEpisodes([]);
+
+        const EpisodesTemp: Array<JSX.Element> = [];
+
+        for (let i = 0; i < content.totalEpisodes!!; i++) {
+            const El = (
+                <div className="pr-3 mt-4">
+                    <EpisodeButton text={(i + 1).toString()} />
+                </div>
+            );
+
+            EpisodesTemp.push(El);
+        }
+
+        setEpisodes(EpisodesTemp);
+    }, [content]);
 
     return (
         <div className="pt-10 flex flex-wrap">
@@ -43,6 +65,16 @@ const Show = () => {
 
             <div className="w-full mt-10">
                 <VideoStreamer url={content.video!!} thumbnail={content.thumb!!} />
+            </div>
+
+            <div className="w-full mt-10">
+                <MenuTitle title="Episodes" />
+            </div>
+
+            <div className="w-full mt-2 flex flex-wrap">{Episodes}</div>
+
+            <div className="w-full mt-10">
+                <MenuTitle title="Comments" />
             </div>
         </div>
     );

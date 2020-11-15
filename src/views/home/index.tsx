@@ -6,7 +6,7 @@ import Trending from "../../components/trending";
 import Contents from "../../components/contents";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import MenuTitle from "../../components/menu-title";
-import Icon from "../../components/ui/icon";
+import Icon from "../../components/icon";
 import { Link } from "react-router-dom";
 
 const Home = () => (
@@ -25,7 +25,7 @@ const Home = () => (
                     <div className="flex w-full items-center">
                         <MenuTitle title="CONTENTS" />
 
-                        <div className="ml-auto flex items-center lg:pr-4 cursor-pointer">
+                        <div className="ml-auto flex items-center lg:pr-4">
                             <Link className="text-white text-sm pr-3" to="/contens">
                                 VIEW ALL
                             </Link>
