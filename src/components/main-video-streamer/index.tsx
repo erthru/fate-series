@@ -13,7 +13,7 @@ const MainVideoStreamer = () => {
         return () => {
             dispatch(continueVideo(2));
         };
-    }, []);
+    }, [dispatch]);
 
     return <video className="h-auto w-full rounded-lg" ref={videoRef} poster={thumbnail} src={video} controls style={{ objectFit: "cover" }} />;
 };

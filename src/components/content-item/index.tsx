@@ -6,27 +6,27 @@ import Icon from "../icon";
 
 type Props = {
     content: Content;
-    mode: ContentPreviewMode;
+    mode: ContentItemMode;
 };
 
-export enum ContentPreviewMode {
+export enum ContentItemMode {
     horizontal = "horizontal",
     vertical = "vertical",
 }
 
-const ContentPreview = (props: Props) => (
+const ContentItem = (props: Props) => (
     <Link className="flex flex-wrap" to={"/show/" + props.content.id}>
         <div
             className="rounded-lg w-full bg-red-800"
             style={{
-                height: props.mode === ContentPreviewMode.vertical ? "300px" : "180px",
-                backgroundImage: props.mode === ContentPreviewMode.vertical ? "url(" + props.content.thumb + ")" : "linear-gradient(to bottom, transparent 0%, black 120%), url(" + props.content.thumb + ")",
+                height: props.mode === ContentItemMode.vertical ? "300px" : "180px",
+                backgroundImage: props.mode === ContentItemMode.vertical ? "url(" + props.content.thumb + ")" : "linear-gradient(to bottom, transparent 0%, black 120%), url(" + props.content.thumb + ")",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center center",
             }}
         >
-            {props.mode === ContentPreviewMode.horizontal ? (
+            {props.mode === ContentItemMode.horizontal ? (
                 <div className="flex w-full">
                     <div className="pt-3 pl-3">
                         <span className="bg-red-600 px-2 py-1 text-white">{props.content.releaseYear}</span>
@@ -39,7 +39,7 @@ const ContentPreview = (props: Props) => (
                 </div>
             ) : null}
 
-            {props.mode === ContentPreviewMode.horizontal ? (
+            {props.mode === ContentItemMode.horizontal ? (
                 <div className="px-6 w-full relative">
                     <span className="text-white font-medium text-xl absolute top-0 truncate w-10/12" style={{ marginTop: "95px", marginRight: "14px" }}>
                         {props.content.title}
@@ -47,13 +47,13 @@ const ContentPreview = (props: Props) => (
                 </div>
             ) : null}
 
-            {props.mode === ContentPreviewMode.vertical ? (
+            {props.mode === ContentItemMode.vertical ? (
                 <div className="pt-3 pl-3">
                     <span className="bg-red-600 px-2 py-1 text-white">{props.content.releaseYear}</span>
                 </div>
             ) : null}
 
-            {props.mode === ContentPreviewMode.vertical ? (
+            {props.mode === ContentItemMode.vertical ? (
                 <div className="h-full relative w-full">
                     <div className="absolute bottom-0 w-full">
                         <div className="flex w-full">
@@ -72,8 +72,8 @@ const ContentPreview = (props: Props) => (
             ) : null}
         </div>
 
-        {props.mode === ContentPreviewMode.vertical ? <span className="text-white font-medium text-xl mt-3">{props.content.title}</span> : null}
+        {props.mode === ContentItemMode.vertical ? <span className="text-white font-medium text-xl mt-3">{props.content.title}</span> : null}
     </Link>
 );
 
-export default ContentPreview;
+export default ContentItem;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Store } from "../../plugins/store";
 import { getTrendingContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
-import ContentPreview, { ContentPreviewMode } from "../content-preview";
+import ContentItem, { ContentItemMode } from "../content-item";
 import ProgressBar from "../progress-bar";
 
 const Trending = () => {
@@ -28,7 +28,7 @@ const Trending = () => {
             <div className="flex flex-wrap">
                 {trendingContents.map((trendingContent) => (
                     <div className="w-full mt-8" key={trendingContent.id}>
-                        <ContentPreview content={trendingContent} mode={ContentPreviewMode.horizontal} />
+                        <ContentItem content={trendingContent} mode={ContentItemMode.horizontal} />
                     </div>
                 ))}
             </div>

@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../../helpers/contants";
 import { Content } from "../store/content/types";
+import IFetchCommentsResponse from "./responses/fetchCommentsResponse";
 import IFetchContentResponse from "./responses/fetchContentResponse";
 import IFetchContentsResponse from "./responses/fetchContentsResponse";
 import IFetchHeadlinesContentsResponse from "./responses/fetchHeadlinesContentsResponse";
@@ -59,4 +60,9 @@ export const fetchTrendingContents = async (): Promise<IFetchTrendingContentsRes
     };
 
     return newResponse;
+};
+
+export const fetchComments = async (): Promise<IFetchCommentsResponse> => {
+    const _fetch = await fetch(API_BASE_URL + "comments.json");
+    return (await _fetch.json()) as IFetchCommentsResponse;
 };

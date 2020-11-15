@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Store } from "../../plugins/store";
 import { getContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
-import ContentPreview, { ContentPreviewMode } from "../content-preview";
+import ContentItem, { ContentItemMode } from "../content-item";
 import ProgressBar from "../progress-bar";
 
 const Contents = () => {
@@ -27,7 +27,7 @@ const Contents = () => {
             <div className="flex flex-wrap md:-mr-6 lg:mr-0">
                 {contents.map((content) => (
                     <div className="w-full md:w-1/3 md:pr-6 mt-8" key={content.id}>
-                        <ContentPreview content={content} mode={ContentPreviewMode.vertical} />
+                        <ContentItem content={content} mode={ContentItemMode.vertical} />
                     </div>
                 ))}
             </div>
