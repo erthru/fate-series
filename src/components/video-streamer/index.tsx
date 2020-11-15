@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Store } from "../../plugins/store";
 
-type Props = {
-    thumbnail: string;
-    url: string;
+const VideoStreamer = () => {
+    const thumbnail = useSelector((store: Store) => store.videoStreamer.thumbnail) as string;
+    const video = useSelector((store: Store) => store.videoStreamer.video) as string;
+
+    return <video className="h-auto w-full rounded-lg" poster={thumbnail} src={video} controls style={{ objectFit: "cover" }} />;
 };
-
-const VideoStreamer = (props: Props) => <video className="h-auto w-full rounded-lg" poster={props.thumbnail} src={props.url} controls style={{ objectFit: "cover" }} />;
 
 export default VideoStreamer;

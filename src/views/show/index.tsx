@@ -8,7 +8,8 @@ import ProgressBar from "../../components/progress-bar";
 import VideoStreamer from "../../components/video-streamer";
 import { Store } from "../../plugins/store";
 import { getContent } from "../../plugins/store/content/actions";
-import { Content } from "../../plugins/store/content/types";
+import { Content, ContentType } from "../../plugins/store/content/types";
+import { registerVideo } from "../../plugins/store/video-streamer/actions";
 
 type Params = {
     id: string;
@@ -38,6 +39,8 @@ const Show = () => {
     }, [dispatch]);
 
     useEffect(() => {
+        dispatch(registerVideo(content.title!!, content.thumb!!, content.video!!, 1));
+
         setEpisodes([]);
 
         const EpisodesTemp: Array<JSX.Element> = [];
@@ -64,17 +67,25 @@ const Show = () => {
             </div>
 
             <div className="w-full mt-10">
-                <VideoStreamer url={content.video!!} thumbnail={content.thumb!!} />
+                <VideoStreamer />
             </div>
 
-            <div className="w-full mt-10">
-                <MenuTitle title="Episodes" />
-            </div>
+            {content.type === ContentType.series ? (
+                <div>
+                    <div className="w-full mt-10">
+                        <MenuTitle title="Episodes" />
+                    </div>
 
-            <div className="w-full mt-2 flex flex-wrap">{Episodes}</div>
+                    <div className="w-full mt-2 flex flex-wrap">{Episodes}</div>
+                </div>
+            ) : null}
 
             <div className="w-full mt-10">
                 <MenuTitle title="Comments" />
+            </div>
+
+            <div className="w-full mt-10">
+                <MenuTitle title="Add Comment" />
             </div>
         </div>
     );
