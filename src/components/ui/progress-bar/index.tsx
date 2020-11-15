@@ -1,6 +1,6 @@
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import Icon from "../ui/icon";
+import Icon from "../icon";
 
 type Props = {
     color: string;

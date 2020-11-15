@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { toggleNavbarDrop } from "../../../plugins/store/navbar/actions";
+import { toggleNavbarDrop } from "../../plugins/store/navbar/actions";
 import NavbarDropItem from "./navbar-drop-item";
 import "./styles.css";
 

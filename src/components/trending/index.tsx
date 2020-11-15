@@ -5,8 +5,7 @@ import { Store } from "../../plugins/store";
 import { getTrendingContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
 import ContentPreview, { ContentPreviewMode } from "../content-preview";
-import MenuTitle from "../menu-title";
-import ProgressBar from "../progress-bar";
+import ProgressBar from "../ui/progress-bar";
 
 const Trending = () => {
     const dispatch = useDispatch();
@@ -20,8 +19,6 @@ const Trending = () => {
 
     return (
         <div>
-            <MenuTitle title="TRENDING" />
-
             {isFetchingTrending && trendingContents.length === 0 ? (
                 <div className="w-full flex mt-8">
                     <ProgressBar color="white" className="mx-auto" />

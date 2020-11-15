@@ -5,8 +5,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Store } from "../../plugins/store";
 import { toggleNavbarDrop } from "../../plugins/store/navbar/actions";
 import Icon from "../ui/icon";
-import NavbarCenterItem from "./navbar-center-item";
-import NavbarDrop from "./navbar-drop";
+import NavbarCenterItem from "../navbar-center-item";
+import NavbarDrop from "../navbar-drop";
 
 const Navbar = () => {
     const location = useLocation();

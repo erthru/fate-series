@@ -1,13 +1,10 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Store } from "../../plugins/store";
 import { getContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
 import ContentPreview, { ContentPreviewMode } from "../content-preview";
-import MenuTitle from "../menu-title";
-import ProgressBar from "../progress-bar";
-import Icon from "../ui/icon";
+import ProgressBar from "../ui/progress-bar";
 
 const Contents = () => {
     const dispatch = useDispatch();
@@ -21,15 +18,6 @@ const Contents = () => {
 
     return (
         <div>
-            <div className="flex w-full items-center">
-                <MenuTitle title="CONTENTS" />
-
-                <div className="ml-auto flex items-center lg:pr-4 cursor-pointer">
-                    <span className="text-white text-sm pr-3">VIEW ALL</span>
-                    <Icon icon={faArrowRight} className="text-white text-sm" />
-                </div>
-            </div>
-
             {isFetchingContents && contents.length === 0 ? (
                 <div className="w-full flex mt-8">
                     <ProgressBar color="white" className="mx-auto" />

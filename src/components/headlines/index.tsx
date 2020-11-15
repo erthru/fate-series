@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { Store } from "../../plugins/store";
 import { getHeadlinesContents } from "../../plugins/store/content/actions";
 import { Content } from "../../plugins/store/content/types";
-import ProgressBar from "../progress-bar";
+import ProgressBar from "../ui/progress-bar";
 import Icon from "../ui/icon";
 import "./styles.css";
 
