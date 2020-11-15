@@ -47,7 +47,7 @@ const Show = () => {
 
         for (let i = 0; i < content.totalEpisodes!!; i++) {
             const El = (
-                <div className="pr-3 mt-4">
+                <div className="pr-3 mt-4" key={i}>
                     <EpisodeButton text={(i + 1).toString()} />
                 </div>
             );
@@ -66,9 +66,7 @@ const Show = () => {
                 <Breadcrumb items={breadcrumbItems} />
             </div>
 
-            <div className="w-full mt-10">
-                <VideoStreamer />
-            </div>
+            <div className="w-full mt-10"></div>
 
             {content.type === ContentType.series ? (
                 <div>

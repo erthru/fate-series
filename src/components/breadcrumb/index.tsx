@@ -21,7 +21,7 @@ const Breadcrumb = (props: Props) => (
         </Link>
 
         {props.items.map((item, index) => (
-            <div>
+            <div key={index}>
                 <Icon icon={faChevronRight} className="text-gray-400 ml-3 text-sm" />
 
                 {index === props.items.length - 1 ? <span className="ml-3 text-gray-600">{item.text}</span> : null}
