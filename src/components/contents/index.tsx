@@ -48,7 +48,7 @@ const Contents = (props: Props) => {
         <div>
             {isFetching && requestedContents.length === 0 ? (
                 <div className="w-full flex mt-8">
-                    <ProgressBar color="white" className="mx-auto" />
+                    <ProgressBar color="white" className="mx-auto" size="4xl" />
                 </div>
             ) : null}
 

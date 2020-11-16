@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet";
 import { APP_NAME } from "../../helpers/contants";
 import Comments from "../../components/comments";
 import Episodes from "../../components/episodes";
+import AddCommentForm from "../../components/add-comment-form";
 
 type Params = {
     id: string;
@@ -51,7 +52,7 @@ const Show = () => {
             </Helmet>
 
             <div className="pt-10 flex flex-wrap">
-                {isFetchingContent && content.id === undefined ? <ProgressBar className="mx-auto" color="white" /> : null}
+                {isFetchingContent && content.id === undefined ? <ProgressBar className="mx-auto" color="white" size="4xl" /> : null}
 
                 <div className="w-full">
                     <Breadcrumb items={breadcrumbItems} />
@@ -79,12 +80,16 @@ const Show = () => {
                     <MenuTitle title="Comments" />
                 </div>
 
-                <div className="mt-3 w-full">
+                <div className="mt-3 w-full md:w-7/12">
                     <Comments />
                 </div>
 
                 <div className="w-full mt-10">
                     <MenuTitle title="Add Comment" />
+                </div>
+
+                <div className="mt-6 w-full md:w-7/12 pb-20">
+                    <AddCommentForm />
                 </div>
             </div>
         </div>

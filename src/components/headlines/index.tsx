@@ -42,7 +42,7 @@ const Headlines = () => {
             <div className="w-full bg-red-900 rounded-lg img-on-center overflow-hidden flex flex-wrap items-center" style={{ height: "550px", zIndex: 998 }}>
                 {headlinesContents.length === 0 ? (
                     <div className="mx-auto">
-                        <ProgressBar color="white" />
+                        <ProgressBar color="white" size="4xl" />
                     </div>
                 ) : null}
 
