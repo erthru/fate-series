@@ -1,15 +1,35 @@
 import { faBars, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Store } from "../../plugins/store";
-import { toggleNavbarDrop } from "../../plugins/store/navbar/actions";
+import React, { useState } from "react";
 import Icon from "../icon";
-import NavbarCenterItem from "../navbar-center-item";
-import NavbarDrop from "../navbar-drop";
+import NavbarItem, { NavbarItemMode } from "../navbar-item";
+import "./styles.css";
 
 const Navbar = () => {
-    const dispatch = useDispatch();
-    const isNavbarDropShown = useSelector((store: Store) => store.navbar.isNavbarDropShown) as boolean;
+    type _NavbarItem = {
+        text: string;
+        to: string;
+    };
+
+    const navbarItems: Array<_NavbarItem> = [
+        {
+            text: "Home",
+            to: "/",
+        },
+        {
+            text: "Schedule",
+            to: "/schedule",
+        },
+        {
+            text: "Our Blog",
+            to: "/our-blog",
+        },
+        {
+            text: "Staff",
+            to: "/staff",
+        },
+    ];
+
+    const [isDropShown, setIsDropShown] = useState(false);
 
     return (
         <div className="w-full flex flex-wrap bg-indigo-1500">
@@ -20,21 +40,22 @@ const Navbar = () => {
                 </span>
 
                 <div className="w-auto h-full ml-auto hidden lg:flex mr-20">
-                    <NavbarCenterItem text="Home" to="/" />
-                    <NavbarCenterItem text="Schedule" to="/schedule" />
-                    <NavbarCenterItem text="Our Blog" to="/our-blog" />
-                    <NavbarCenterItem text="Staff" to="/staff" />
+                    {navbarItems.map((navbarItem) => (
+                        <NavbarItem text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.vertical} />
+                    ))}
                 </div>
 
                 <div className="w-auto ml-auto flex">
                     <Icon icon={faSearch} className="text-white cursor-pointer" />
                     <Icon icon={faUser} className="text-white ml-6 cursor-pointer" />
-                    <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" onClick={() => dispatch(toggleNavbarDrop())} />
+                    <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" onClick={() => setIsDropShown(!isDropShown)} />
                 </div>
             </div>
 
-            <div className="w-full">
-                <NavbarDrop isShown={isNavbarDropShown} />
+            <div className={"w-full flex flex-wrap container px-6 md:px-16 " + (isDropShown ? "drop-active pb-4" : "drop")} onClick={() => setIsDropShown(false)}>
+                {navbarItems.map((navbarItem) => (
+                    <NavbarItem text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.horizontal} />
+                ))}
             </div>
         </div>
     );
