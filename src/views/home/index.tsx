@@ -2,8 +2,7 @@ import React from "react";
 import Headlines from "../../components/headlines";
 import { Helmet } from "react-helmet";
 import { APP_NAME } from "../../helpers/contants";
-import Trending from "../../components/trending";
-import Contents from "../../components/contents";
+import Contents, { ContentsFetch, ContentsMode } from "../../components/contents";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import MenuTitle from "../../components/menu-title";
 import Icon from "../../components/icon";
@@ -34,7 +33,7 @@ const Home = () => (
                         </div>
                     </div>
 
-                    <Contents />
+                    <Contents mode={ContentsMode.grid} fetch={ContentsFetch.contents} />
                 </div>
 
                 <div className="w-full lg:w-4/12 mt-8 lg:mt-0">
@@ -42,7 +41,7 @@ const Home = () => (
                         <MenuTitle title="TRENDING" />
                     </div>
 
-                    <Trending />
+                    <Contents mode={ContentsMode.list} fetch={ContentsFetch.trending} />
                 </div>
             </div>
         </div>
