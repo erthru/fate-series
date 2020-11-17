@@ -27,10 +27,6 @@ const Show = () => {
     const [isFetchingContent, setIsFetchingContent] = useState(false);
     const breadcrumbItems: Array<BreadcrumbItem> = [
         {
-            text: "Contents",
-            url: "/contents",
-        },
-        {
             text: content.title!!,
             url: "",
         },
@@ -38,7 +34,7 @@ const Show = () => {
 
     useEffect(() => {
         setIsFetchingContent(true);
-        dispatch(getContent(parseInt(id)));
+        dispatch(getContent(id));
     }, [dispatch]);
 
     useEffect(() => {
@@ -81,7 +77,7 @@ const Show = () => {
                 </div>
 
                 <div className="mt-3 w-full md:w-7/12">
-                    <Comments />
+                    <Comments contentId={id} />
                 </div>
 
                 <div className="w-full mt-10">

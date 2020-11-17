@@ -2,11 +2,8 @@ import { State, Action, TYPES } from "./types";
 
 const initialState: State = {
     headlinesContents: [],
-    headlinesContentsTotal: 0,
     contents: [],
-    contentsTotal: 0,
     trendingContents: [],
-    trendingContentsTotal: 0,
     content: {},
     isError: false,
 };
@@ -14,22 +11,22 @@ const initialState: State = {
 const reducers = (state = initialState, { type, payloads }: Action): State => {
     switch (type) {
         case TYPES.REQUEST_HEADLINES_CONTENTS_INITIAL:
-            return { ...state, headlinesContents: [], headlinesContentsTotal: 0, isError: false };
+            return { ...state, headlinesContents: [], isError: false };
 
         case TYPES.REQUEST_HEADLINES_CONTENTS_COMPLETED:
-            return { ...state, headlinesContents: payloads?.headlinesContents!!, headlinesContentsTotal: payloads?.headlinesContentsTotal!! };
+            return { ...state, headlinesContents: payloads?.headlinesContents!! };
 
         case TYPES.REQUEST_CONTENTS_INITIAL:
-            return { ...state, contents: [], contentsTotal: 0, isError: false };
+            return { ...state, contents: [], isError: false };
 
         case TYPES.REQUEST_CONTENTS_COMPLETED:
-            return { ...state, contents: payloads?.contents!!, contentsTotal: payloads?.contentsTotal!! };
+            return { ...state, contents: payloads?.contents!! };
 
         case TYPES.REQUEST_TRENDING_CONTENTS_INITIAL:
-            return { ...state, trendingContents: [], trendingContentsTotal: 0, isError: false };
+            return { ...state, trendingContents: [], isError: false };
 
         case TYPES.REQUEST_TRENDING_CONTENTS_COMPLETED:
-            return { ...state, trendingContents: payloads?.trendingContents!!, trendingContentsTotal: payloads?.trendingContentsTotal!! };
+            return { ...state, trendingContents: payloads?.trendingContents!! };
 
         case TYPES.REQUEST_CONTENT_INITIAL:
             return { ...state, content: {} };

@@ -5,15 +5,15 @@ export enum TYPES {
 }
 
 export type Comment = {
-    id?: number;
+    id?: string;
     name?: string;
     body?: string;
     avatar?: string;
+    contentId?: string;
 };
 
 export type State = {
     comments: Array<Comment>;
-    commentsTotal: number;
     isError: boolean;
 };
 
@@ -21,6 +21,5 @@ export type Action = {
     type: TYPES;
     payload?: {
         comments?: Array<Comment>;
-        commentsTotal?: number;
     };
 };

@@ -11,7 +11,7 @@ export enum TYPES {
 }
 
 export type Content = {
-    id?: number;
+    id?: string;
     title?: string;
     description?: string;
     thumb?: string;
@@ -20,6 +20,7 @@ export type Content = {
     viewed?: number;
     totalEpisodes?: number;
     releaseYear?: string;
+    isHeadline?: boolean;
 };
 
 export enum ContentType {
@@ -29,11 +30,8 @@ export enum ContentType {
 
 export type State = {
     headlinesContents: Array<Content>;
-    headlinesContentsTotal: number;
     contents: Array<Content>;
-    contentsTotal: number;
     trendingContents: Array<Content>;
-    trendingContentsTotal: number;
     content: Content;
     isError: boolean;
 };
@@ -42,11 +40,8 @@ export type Action = {
     type: TYPES;
     payloads?: {
         headlinesContents?: Array<Content>;
-        headlinesContentsTotal?: number;
         contents?: Array<Content>;
-        contentsTotal?: number;
         trendingContents?: Array<Content>;
-        trendingContentsTotal?: number;
         content?: Content;
     };
 };
