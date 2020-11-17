@@ -77,7 +77,7 @@ const Show = () => {
                 </div>
 
                 <div className="mt-3 w-full md:w-7/12">
-                    <Comments contentId={id} />
+                    <Comments />
                 </div>
 
                 <div className="w-full mt-10">
