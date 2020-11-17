@@ -38,6 +38,8 @@
     <li>DotENV</li>
     <li>Font Awesome Icon</li>
     <li>Helmet</li>
+    <li>Firebase</li>
+    <li>Firestore</li>
 </ul>
 
 <h4 style="margin-top: 30px">Screenshots: </h4>
