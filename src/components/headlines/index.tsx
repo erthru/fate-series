@@ -46,42 +46,42 @@ const Headlines = () => {
                 ) : null}
 
                 {headlinesContents.length > 0 ? (
-                    <div
-                        className={"w-full " + fade}
-                        style={{
-                            backgroundImage: "linear-gradient(to bottom, transparent 0%, black 120%), url(" + headlinesContents[headlinesPosition].thumb + ")",
-                            width: "100%",
-                            height: "550px",
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center center",
-                        }}
-                    ></div>
-                ) : null}
+                    <div className="w-full">
+                        <div
+                            className={"w-full " + fade}
+                            style={{
+                                backgroundImage: "linear-gradient(to bottom, transparent 0%, black 120%), url(" + headlinesContents[headlinesPosition].thumb + ")",
+                                width: "100%",
+                                height: "550px",
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                                backgroundPosition: "center center",
+                            }}
+                        ></div>
 
-                {headlinesContents.length > 0 ? (
-                    <div className={"w-full flex " + fade}>
-                        <div className="h-8 ml-6 pr-6 lg:ml-16 lg:pr-16 flex flex-wrap w-full" style={{ marginTop: "-280px" }}>
-                            <span className="px-4 py-1 bg-white text-orange-600 text-sm">Adventure</span>
-                            <span className="w-full mr-10 text-white mt-2 text-5xl font-bold truncate">{headlinesContents[headlinesPosition].title}</span>
-                            <span className="w-full mr-10 text-white text-sm truncate">{headlinesContents[headlinesPosition].description}</span>
+                        <div className={"w-full flex " + fade}>
+                            <div className="h-8 ml-6 pr-6 lg:ml-16 lg:pr-16 flex flex-wrap w-full" style={{ marginTop: "-280px" }}>
+                                <span className="px-4 py-1 bg-white text-orange-600 text-sm">Adventure</span>
+                                <span className="w-full mr-10 text-white mt-2 text-5xl font-bold truncate">{headlinesContents[headlinesPosition].title}</span>
+                                <span className="w-full mr-10 text-white text-sm truncate">{headlinesContents[headlinesPosition].description}</span>
 
-                            <div className="w-full mt-6">
-                                <button className="flex cursor-pointer" onClick={() => history.push("/show/" + headlinesContents[headlinesPosition].id)}>
-                                    <div className="bg-red-600 px-3 rounded-l-lg text-white font-bold h-12 flex items-center">WATCH NOW</div>
+                                <div className="w-full mt-6">
+                                    <button className="flex cursor-pointer" onClick={() => history.push("/show/" + headlinesContents[headlinesPosition].id)}>
+                                        <div className="bg-red-600 px-3 rounded-l-lg text-white font-bold h-12 flex items-center">WATCH NOW</div>
 
-                                    <div className="w-6 bg-red-600 ml-1 rounded-r-lg flex items-center h-12">
-                                        <Icon icon={faChevronRight} className="text-white mx-auto" />
-                                    </div>
-                                </button>
-                            </div>
+                                        <div className="w-6 bg-red-600 ml-1 rounded-r-lg flex items-center h-12">
+                                            <Icon icon={faChevronRight} className="text-white mx-auto" />
+                                        </div>
+                                    </button>
+                                </div>
 
-                            <div className="w-auto mt-8 flex mx-auto">
-                                {headlinesContents.map((_, index) => (
-                                    <div className="px-1" key={index}>
-                                        <div className={"cursor-pointer rounded-full " + (index === headlinesPosition ? "bg-white" : "bg-gray-600")} style={{ width: "8px", height: "8px" }} onClick={() => moveSliderPosition(index)}></div>
-                                    </div>
-                                ))}
+                                <div className="w-auto mt-8 flex mx-auto">
+                                    {headlinesContents.map((_, index) => (
+                                        <div className="px-1" key={index}>
+                                            <div className={"cursor-pointer rounded-full " + (index === headlinesPosition ? "bg-white" : "bg-gray-600")} style={{ width: "8px", height: "8px" }} onClick={() => moveSliderPosition(index)}></div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

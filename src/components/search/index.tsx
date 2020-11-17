@@ -11,7 +11,7 @@ const Search = (props: Props) => {
     const [keywords, setKeywords] = useState("");
 
     return props.isShown ? (
-        <div className="bg-almost-black-600 fixed h-screen w-screen fade-0-2" style={{ zIndex: 9991 }}>
+        <div className="bg-almost-black-800 fixed h-screen w-screen fade-0-2" style={{ zIndex: 9991 }}>
             <div className="flex w-full">
                 <div className="rounded-full h-12 w-12 bg-almost-black-400 flex items-center mx-auto mt-8 cursor-pointer" onClick={props.onCloseClick}>
                     <Icon icon={faTimes} className="text-white mx-auto text-xl" />

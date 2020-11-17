@@ -54,7 +54,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={"w-full flex flex-wrap container px-6 md:px-16 " + (isDropShown ? "drop-active pb-4" : "drop")} onClick={() => setIsDropShown(false)}>
+            <div className={"w-full flex flex-wrap lg:hidden container px-6 md:px-16 " + (isDropShown ? "drop-active pb-4" : "drop")} onClick={() => setIsDropShown(false)}>
                 {navbarItems.map((navbarItem) => (
                     <NavbarItem key={navbarItem.to} text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.horizontal} />
                 ))}

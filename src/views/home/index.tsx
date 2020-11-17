@@ -25,7 +25,7 @@ const Home = () => (
                         <MenuTitle title="CONTENTS" />
 
                         <div className="ml-auto flex items-center lg:pr-4">
-                            <Link className="text-white text-sm pr-3" to="/contens">
+                            <Link className="text-white text-sm pr-3" to="/contents">
                                 VIEW ALL
                             </Link>
 
