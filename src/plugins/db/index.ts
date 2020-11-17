@@ -17,4 +17,5 @@ firebaseApp.initializeApp(config);
 
 export const COLLECTION_CONTENTS = "contents";
 export const COLLECTION_COMMENTS = "comments";
+
 export default firebaseApp.firestore();
