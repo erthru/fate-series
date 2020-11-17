@@ -15,7 +15,7 @@ const Headlines = () => {
     const history = useHistory();
     const headlinesContents = useSelector((store: Store) => store.content.headlinesContents) as Array<Content>;
     const [headlinesPosition, setHeadlinesPosition] = useState(0);
-    const [fade, setFade] = useState("fade");
+    const [fade, setFade] = useState("fade-1-5");
 
     useEffect(() => {
         dispatch(getHeadlinesContents());
@@ -25,7 +25,7 @@ const Headlines = () => {
         setFade("");
 
         setTimeout(() => {
-            setFade("fade");
+            setFade("fade-1-5");
         }, 0);
 
         setHeadlinesPosition(position < 0 ? headlinesContents.length - 1 : position > headlinesContents.length - 1 ? 0 : position);

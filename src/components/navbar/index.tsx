@@ -2,6 +2,7 @@ import { faBars, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import Icon from "../icon";
 import NavbarItem, { NavbarItemMode } from "../navbar-item";
+import Search from "../search";
 import "./styles.css";
 
 const Navbar = () => {
@@ -30,6 +31,7 @@ const Navbar = () => {
     ];
 
     const [isDropShown, setIsDropShown] = useState(false);
+    const [isSearchShown, setIsSearchShown] = useState(false);
 
     return (
         <div className="w-full flex flex-wrap bg-indigo-1500">
@@ -41,12 +43,12 @@ const Navbar = () => {
 
                 <div className="w-auto h-full ml-auto hidden lg:flex mr-20">
                     {navbarItems.map((navbarItem) => (
-                        <NavbarItem text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.vertical} />
+                        <NavbarItem key={navbarItem.to} text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.vertical} />
                     ))}
                 </div>
 
                 <div className="w-auto ml-auto flex">
-                    <Icon icon={faSearch} className="text-white cursor-pointer" />
+                    <Icon icon={faSearch} className="text-white cursor-pointer" onClick={() => setIsSearchShown(true)} />
                     <Icon icon={faUser} className="text-white ml-6 cursor-pointer" />
                     <Icon icon={faBars} className="text-white ml-6 block lg:hidden cursor-pointer" onClick={() => setIsDropShown(!isDropShown)} />
                 </div>
@@ -54,9 +56,11 @@ const Navbar = () => {
 
             <div className={"w-full flex flex-wrap container px-6 md:px-16 " + (isDropShown ? "drop-active pb-4" : "drop")} onClick={() => setIsDropShown(false)}>
                 {navbarItems.map((navbarItem) => (
-                    <NavbarItem text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.horizontal} />
+                    <NavbarItem key={navbarItem.to} text={navbarItem.text} to={navbarItem.to} mode={NavbarItemMode.horizontal} />
                 ))}
             </div>
+
+            <Search isShown={isSearchShown} onCloseClick={() => setIsSearchShown(false)} />
         </div>
     );
 };

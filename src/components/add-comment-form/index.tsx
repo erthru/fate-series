@@ -13,7 +13,7 @@ const AddCommentForm = () => {
             <Input placeholder="Your Comment" className="h-32" isTextArea required value={comment} onChange={(e) => setComment(e.currentTarget.value)} />
 
             <Button type="button" className="mt-4 w-full md:w-auto" color="red-600" isLoading={isSubmiting} onClick={() => setIsSubmitting(true)}>
-                <Icon icon={faPaperPlane} className="text-white text-lg" />
+                <Icon icon={faPaperPlane} className="text-white" />
                 <span className="ml-2">SUBMIT</span>
             </Button>
         </div>
