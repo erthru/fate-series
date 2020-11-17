@@ -1,4 +1,4 @@
-import { DB_API_KEY, DB_APP_ID, DB_AUTH_DOMAIN, DB_DATABASE_URL, DB_MEASUREMENT_ID, DB_MESSAGING_SENDER_ID, DB_PROJECT_ID, DB_STORAGE_BUCKET } from "../../helpers/contants";
+import { DB_API_KEY, DB_APP_ID, DB_AUTH_DOMAIN, DB_DATABASE_URL, DB_MEASUREMENT_ID, DB_MESSAGING_SENDER_ID, DB_PROJECT_ID, DB_STORAGE_BUCKET } from "../../helpers/environtment";
 import firebaseApp from "firebase/app";
 import "firebase/firestore";
 
@@ -15,4 +15,6 @@ const config = {
 
 firebaseApp.initializeApp(config);
 
+export const COLLECTION_CONTENTS = "contents";
+export const COLLECTION_COMMENTS = "comments";
 export default firebaseApp.firestore();

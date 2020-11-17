@@ -18,7 +18,7 @@ const Comments = (props: Props) => {
     useEffect(() => {
         setIsFetching(true);
         dispatch(getComments(props.contentId));
-    }, [dispatch]);
+    }, []);
 
     return (
         <div>

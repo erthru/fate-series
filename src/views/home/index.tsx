@@ -1,7 +1,7 @@
 import React from "react";
 import Headlines from "../../components/headlines";
 import { Helmet } from "react-helmet";
-import { APP_NAME } from "../../helpers/contants";
+import { APP_NAME } from "../../helpers/environtment";
 import Contents, { ContentsFetch, ContentsMode } from "../../components/contents";
 import MenuTitle from "../../components/menu-title";
 

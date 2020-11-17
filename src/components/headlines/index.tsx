@@ -18,7 +18,7 @@ const Headlines = () => {
 
     useEffect(() => {
         dispatch(getHeadlinesContents());
-    }, [dispatch]);
+    }, []);
 
     const moveSliderPosition = (position: number) => {
         setFade("");

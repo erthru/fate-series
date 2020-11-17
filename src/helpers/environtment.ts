@@ -11,5 +11,3 @@ export const DB_STORAGE_BUCKET = (process.env.REACT_APP_DB_STORAGE_BUCKET as unk
 export const DB_MESSAGING_SENDER_ID = (process.env.REACT_APP_DB_MESSAGING_SENDER_ID as unknown) as string;
 export const DB_APP_ID = (process.env.REACT_APP_DB_APP_ID as unknown) as string;
 export const DB_MEASUREMENT_ID = (process.env.REACT_APP_DB_MEASUREMENT_ID as unknown) as string;
-export const DB_COLLECTION_CONTENTS_NAME = "contents";
-export const DB_COLLECTION_COMMENTS_NAME = "comments";

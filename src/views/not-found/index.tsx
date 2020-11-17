@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { APP_NAME } from "../../helpers/contants";
+import { APP_NAME } from "../../helpers/environtment";
 
 const NotFound = () => (
     <div>

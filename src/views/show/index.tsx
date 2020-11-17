@@ -10,7 +10,7 @@ import { getContent } from "../../plugins/store/content/actions";
 import { Content, ContentType } from "../../plugins/store/content/types";
 import { registerVideo } from "../../plugins/store/video-streamer/actions";
 import { Helmet } from "react-helmet";
-import { APP_NAME } from "../../helpers/contants";
+import { APP_NAME } from "../../helpers/environtment";
 import Comments from "../../components/comments";
 import Episodes from "../../components/episodes";
 import AddCommentForm from "../../components/add-comment-form";
@@ -35,7 +35,7 @@ const Show = () => {
     useEffect(() => {
         setIsFetchingContent(true);
         dispatch(getContent(id));
-    }, [dispatch]);
+    }, []);
 
     useEffect(() => {
         if (Object.keys(content).length > 0) if (content.video !== video) dispatch(registerVideo(content.thumb!!, content.video!!, 1));

@@ -1,6 +1,5 @@
 import { Dispatch } from "redux";
-import { DB_COLLECTION_COMMENTS_NAME } from "../../../helpers/contants";
-import db from "../../db";
+import db, { COLLECTION_COMMENTS } from "../../db";
 import { Action, Comment, TYPES } from "./types";
 
 const fillComment = (id: string, data: any): Comment => {
@@ -18,7 +17,7 @@ export const getComments = (contentId: string) => async (dispatch: Dispatch<Acti
         dispatch({ type: TYPES.REQUEST_COMMENTS_INITIAL });
 
         const comments: Array<Comment> = [];
-        const query = await db.collection(DB_COLLECTION_COMMENTS_NAME).where("contentId", "==", contentId).get();
+        const query = await db.collection(COLLECTION_COMMENTS).where("contentId", "==", contentId).get();
 
         query.docs.map((doc) => {
             comments.push(fillComment(doc.id, doc.data()));

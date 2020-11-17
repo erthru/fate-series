@@ -1,6 +1,5 @@
 import { Dispatch } from "redux";
-import { DB_COLLECTION_CONTENTS_NAME } from "../../../helpers/contants";
-import db from "../../db";
+import db, { COLLECTION_CONTENTS } from "../../db";
 import { Action, Content, TYPES } from "./types";
 
 const fillContent = (id: string, data: any): Content => {
@@ -23,7 +22,7 @@ export const getHeadlinesContents = () => async (dispatch: Dispatch<Action>) => 
         dispatch({ type: TYPES.REQUEST_HEADLINES_CONTENTS_INITIAL });
 
         const contents: Array<Content> = [];
-        const query = await db.collection(DB_COLLECTION_CONTENTS_NAME).where("isHeadline", "==", true).get();
+        const query = await db.collection(COLLECTION_CONTENTS).where("isHeadline", "==", true).get();
 
         query.docs.map((doc) => {
             contents.push(fillContent(doc.id, doc.data()));
@@ -40,7 +39,7 @@ export const getContents = () => async (dispatch: Dispatch<Action>) => {
         dispatch({ type: TYPES.REQUEST_CONTENTS_INITIAL });
 
         const contents: Array<Content> = [];
-        const query = await db.collection(DB_COLLECTION_CONTENTS_NAME).get();
+        const query = await db.collection(COLLECTION_CONTENTS).get();
 
         query.docs.map((doc) => {
             contents.push(fillContent(doc.id, doc.data()));
@@ -56,7 +55,7 @@ export const getContent = (id: string) => async (dispatch: Dispatch<Action>) => 
     try {
         dispatch({ type: TYPES.REQUEST_CONTENT_INITIAL });
 
-        const query = await db.collection(DB_COLLECTION_CONTENTS_NAME).doc(id).get();
+        const query = await db.collection(COLLECTION_CONTENTS).doc(id).get();
         const content: Content = fillContent(query.id, query.data());
 
         dispatch({ type: TYPES.REQUEST_CONTENT_COMPLETED, payloads: { content: content } });
@@ -70,7 +69,7 @@ export const getTrendingContents = () => async (dispatch: Dispatch<Action>) => {
         dispatch({ type: TYPES.REQUEST_TRENDING_CONTENTS_INITIAL });
 
         const contents: Array<Content> = [];
-        const query = await db.collection(DB_COLLECTION_CONTENTS_NAME).get();
+        const query = await db.collection(COLLECTION_CONTENTS).get();
 
         for (let i = 0; i < query.docs.length; i++) {
             const rand = Math.floor(Math.random() * query.docs.length);

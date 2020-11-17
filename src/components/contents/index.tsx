@@ -34,7 +34,7 @@ const Contents = (props: Props) => {
 
         if (props.fetch === ContentsFetch.contents) dispatch(getContents());
         else dispatch(getTrendingContents());
-    }, [dispatch]);
+    }, []);
 
     useEffect(() => {
         if (props.fetch === ContentsFetch.contents) setRequestedContents(contents);
