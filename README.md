@@ -11,6 +11,14 @@
 </p>
 
 <p>
+    Images from wallpaperaccess.
+</p>
+
+<p>
+    Video from videezy.
+</p>
+
+<p>
     Do not forget cp .env.exmaple to .env
 </p>
 
